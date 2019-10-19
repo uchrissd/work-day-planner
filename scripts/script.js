@@ -24,6 +24,9 @@ $("button:submit").on("click", function() {
   var userObject = { text: userInput, time: hour };
   //Pushes the keys from the userObject into an array for organization
   storageVariable.push(userObject);
+
+  //Index the userArray
+
   //Sets the array
   localStorage.setItem("userArray", JSON.stringify(storageVariable));
 
@@ -43,8 +46,6 @@ console.log("this is a log" + storageVariable);
 
 function displaySavedText() {
   for (var i = 0; i < storageVariable.length; i++) {
-    console.log(i);
-    console.log(storageVariable[i].text);
     var savedText = storageVariable[i].text;
     console.log(savedText);
   }
@@ -55,6 +56,20 @@ storageVariable.forEach(function(element) {
   console.log(element);
 });
 
+var hoursArray = [
+  "9:00 a.m.",
+  "10:00 a.m.",
+  "11:00 a.m.",
+  "12:00 p.m.",
+  "1:00p.m.",
+  "2:00p.m.",
+  "3:00p.m.",
+  "4:00p.m.",
+  "5:00p.m."
+];
+
+var currentTime = moment().format("h");
+console.log(currentTime);
 // function displaySaved() {
 //   for (var i = 0; i < localStorage.userArray.text.length; i++) {
 //     console.log("this is i" + i);
