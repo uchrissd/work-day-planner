@@ -12,32 +12,65 @@ console.log(realTime);
 //This function acts as an event lister. When any save button is clicked, the user input and the corresponding hour is saved to local storage
 
 $("button:submit").on("click", function() {
-  var storageVariable = localStorage.getItem("userArray");
-  storageVariable = JSON.parse(storageVariable);
-  console.log(storageVariable);
-  if (!storageVariable) {
-    storageVariable = [];
-  }
-
   //This variable stores the user input
-
   var userInput = $(this)
     .closest("tr")
     .find("input:text")
     .val();
+
   //This variable stores the hour of time
   var hour = $(this).data("hour");
-
+  //This object sets the keys for text and time for storage
   var userObject = { text: userInput, time: hour };
-
+  //Pushes the keys from the userObject into an array for organization
   storageVariable.push(userObject);
-
+  //Sets the array
   localStorage.setItem("userArray", JSON.stringify(storageVariable));
 
   console.log(userInput);
   console.log(hour);
   console.log(userObject);
 });
+
+//Global variable for parsing userArray from local storage into an array of accesible objects
+var storageVariable = localStorage.getItem("userArray");
+storageVariable = JSON.parse(storageVariable);
+
+if (!storageVariable) {
+  storageVariable = [];
+}
+console.log("this is a log" + storageVariable);
+
+function displaySavedText() {
+  for (var i = 0; i < storageVariable.length; i++) {
+    console.log(i);
+    console.log(storageVariable[i].text);
+    var savedText = storageVariable[i].text;
+    console.log(savedText);
+  }
+}
+displaySavedText();
+
+storageVariable.forEach(function(element) {
+  console.log(element);
+});
+
+// function displaySaved() {
+//   for (var i = 0; i < localStorage.userArray.text.length; i++) {
+//     console.log("this is i" + i);
+//     // var savedText = [i];
+//     // console.log(savedText);
+//     // var localText = localStorage.getItem(savedText);
+//     // console.log("this is the display text" + localText);
+//   }
+// }
+
+// console.log(localStorage.userArray);
+
+// function displaySaved() {
+//   for var (i = 0; i <localStorage)
+
+// }
 
 //To-do list
 //Save user input to local storage
