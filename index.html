@@ -20,9 +20,26 @@
       href="https://fonts.googleapis.com/css?family=Open+Sans&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" src="assets/style/style.css" />
+    <link rel="stylesheet" src="./assets/style/style.css" />
     <title>Work Day Scheduler</title>
   </head>
+
+  <style>
+    .past {
+      background-color: blue;
+      color: white;
+    }
+
+    .present {
+      background-color: #ff6961;
+      color: white;
+    }
+
+    .future {
+      background-color: #77dd77;
+      color: white;
+    }
+  </style>
 
   <body>
     <header class="jumbotron border-bottom border-dark text-center">
@@ -33,7 +50,7 @@
     <div class="container">
       <!-- Timeblocks go here -->
       <table class="table">
-        <tr id="hour9">
+        <tr id="9" class="hour">
           <td>9a.m.</td>
           <td>
             <input class="form-control form-control-lg" type="text" />
@@ -45,7 +62,7 @@
           </td>
         </tr>
         <tr>
-          <td id="hour10">10a.m.</td>
+          <td id="10" class="hour">10a.m.</td>
           <td>
             <input class="form-control form-control-lg" type="text" />
           </td>
@@ -55,7 +72,7 @@
             </button>
           </td>
         </tr>
-        <tr id="hour11">
+        <tr id="11" class="hour">
           <td>11a.m.</td>
           <td>
             <input class="form-control form-control-lg" type="text" />
@@ -66,7 +83,7 @@
             </button>
           </td>
         </tr>
-        <tr id="hour12">
+        <tr id="12" class="hour">
           <td>12p.m.</td>
           <td>
             <input class="form-control form-control-lg" type="text" />
@@ -77,57 +94,57 @@
             </button>
           </td>
         </tr>
-        <tr id="hour1">
+        <tr id="13" class="hour">
           <td>1p.m.</td>
           <td>
             <input class="form-control form-control-lg" type="text" />
           </td>
           <td>
-            <button data-hour="1" type="submit" class="btn btn-success">
+            <button data-hour="13" type="submit" class="btn btn-success">
               Save
             </button>
           </td>
         </tr>
-        <tr id="hour2">
+        <tr id="14" class="hour">
           <td>2p.m.</td>
           <td>
             <input class="form-control form-control-lg" type="text" />
           </td>
           <td>
-            <button data-hour="2" type="submit" class="btn btn-success">
+            <button data-hour="14" type="submit" class="btn btn-success">
               Save
             </button>
           </td>
         </tr>
-        <tr id="hour3">
+        <tr id="15" class="hour">
           <td>3p.m.</td>
           <td>
             <input class="form-control form-control-lg" type="text" />
           </td>
           <td>
-            <button data-hour="3" type="submit" class="btn btn-success">
+            <button data-hour="15" type="submit" class="btn btn-success">
               Save
             </button>
           </td>
         </tr>
-        <tr id="hour4">
+        <tr id="16" class="hour">
           <td>4p.m.</td>
           <td>
             <input class="form-control form-control-lg" type="text" />
           </td>
           <td>
-            <button data-hour="4" type="submit" class="btn btn-success">
+            <button data-hour="16" type="submit" class="btn btn-success">
               Save
             </button>
           </td>
         </tr>
-        <tr id="hour5">
+        <tr id="17" class="hour">
           <td>5p.m.</td>
           <td>
             <input class="form-control form-control-lg" type="text" />
           </td>
           <td>
-            <button data-hour="5" type="submit" class="btn btn-success">
+            <button data-hour="17" type="submit" class="btn btn-success">
               Save
             </button>
           </td>

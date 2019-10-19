@@ -9,6 +9,9 @@ function realTime() {
 realTime();
 console.log(realTime);
 
+var timeHour;
+var hour;
+
 //This function acts as an event lister. When any save button is clicked, the user input and the corresponding hour is saved to local storage
 
 $("button:submit").on("click", function() {
@@ -21,18 +24,17 @@ $("button:submit").on("click", function() {
   //This variable stores the hour of time
   var hour = $(this).data("hour");
   //This object sets the keys for text and time for storage
-  var userObject = { text: userInput, time: hour };
+
   //Pushes the keys from the userObject into an array for organization
-  storageVariable.push(userObject);
 
   //Index the userArray
+  timeHour = $(this).attr("data-hour");
 
   //Sets the array
-  localStorage.setItem("userArray", JSON.stringify(storageVariable));
+  localStorage.setItem(timeHour, userInput);
 
   console.log(userInput);
   console.log(hour);
-  console.log(userObject);
 });
 
 //Global variable for parsing userArray from local storage into an array of accesible objects
@@ -47,7 +49,7 @@ console.log("this is a log" + storageVariable);
 function displaySavedText() {
   for (var i = 0; i < storageVariable.length; i++) {
     var savedText = storageVariable[i].text;
-    console.log(savedText);
+    console.log("this is text:", savedText);
   }
 }
 displaySavedText();
@@ -56,20 +58,44 @@ storageVariable.forEach(function(element) {
   console.log(element);
 });
 
-var hoursArray = [
-  "9:00 a.m.",
-  "10:00 a.m.",
-  "11:00 a.m.",
-  "12:00 p.m.",
-  "1:00p.m.",
-  "2:00p.m.",
-  "3:00p.m.",
-  "4:00p.m.",
-  "5:00p.m."
-];
-
-var currentTime = moment().format("h");
+var currentTime = moment().format("H");
 console.log(currentTime);
+
+var trArray = $(".hour").get();
+
+for (var i = 0; i < trArray.length; i++) {
+  var trId = parseInt(trArray[i].id);
+  if (trId < parseInt(currentTime)) {
+    console.log("this is trid: ", trId);
+    trArray[i].classList.add("past");
+    console.log(trArray[i]);
+
+    var savedHour = trArray[i].id;
+    var savedText = localStorage.getItem(hour);
+    trArray[i].val = savedText;
+    console.log("this is hour: ", savedHour);
+    console.log(savedText);
+  } else if (trId > parseInt(currentTime)) {
+    console.log("this is trid: ", trId);
+    trArray[i].classList.add("future");
+    console.log(trArray[i]);
+
+    var savedHour = trArray[i].id;
+    var savedText = localStorage.getItem(hour);
+    trArray[i].val = savedText;
+    console.log("this is hour: ", savedHour);
+    console.log(savedText);
+  } else {
+    trArray[i].classList.add("present");
+    console.log(trArray[i]);
+
+    var savedHour = trArray[i].id;
+    var savedText = localStorage.getItem(hour);
+    trArray[i].val = savedText;
+    console.log("this is hour: ", savedHour);
+    console.log(savedText);
+  }
+}
 // function displaySaved() {
 //   for (var i = 0; i < localStorage.userArray.text.length; i++) {
 //     console.log("this is i" + i);
