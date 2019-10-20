@@ -46,6 +46,7 @@ if (!storageVariable) {
 }
 console.log("this is a log" + storageVariable);
 
+//This function doesn't work...
 function displaySavedText() {
   for (var i = 0; i < storageVariable.length; i++) {
     var savedText = storageVariable[i].text;
@@ -54,13 +55,11 @@ function displaySavedText() {
 }
 displaySavedText();
 
-storageVariable.forEach(function(element) {
-  console.log(element);
-});
-
+//Variable for the current hour in military time
 var currentTime = moment().format("H");
 console.log(currentTime);
 
+//Variable that creates an array for the hours that correspond to the rows of the day planner
 var trArray = $(".hour").get();
 
 for (var i = 0; i < trArray.length; i++) {
@@ -96,25 +95,3 @@ for (var i = 0; i < trArray.length; i++) {
     console.log(savedText);
   }
 }
-// function displaySaved() {
-//   for (var i = 0; i < localStorage.userArray.text.length; i++) {
-//     console.log("this is i" + i);
-//     // var savedText = [i];
-//     // console.log(savedText);
-//     // var localText = localStorage.getItem(savedText);
-//     // console.log("this is the display text" + localText);
-//   }
-// }
-
-// console.log(localStorage.userArray);
-
-// function displaySaved() {
-//   for var (i = 0; i <localStorage)
-
-// }
-
-//To-do list
-//Save user input to local storage
-//Access user input from local storage
-//Clear text iput area after user presses save button
-//
