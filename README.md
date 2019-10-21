@@ -51,5 +51,3 @@ console.log(currentTime);
 **Installation**
 
 No installation necessary. Project is hosted here: https://uchrissd.github.io/work-day-planner/
-
-Welcome to GitHub Pages
